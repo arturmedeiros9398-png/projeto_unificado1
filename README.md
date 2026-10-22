@@ -30,29 +30,26 @@ projeto_unificado/
 ## Setup rápido
 
 ```bash
-# 1. Criar e ativar virtualenv
-python -m venv venv
-source venv/bin/activate   # Linux/Mac
-# venv\Scripts\activate    # Windows
+# 1. Clonar o repositório:
+git clone https://github.com/arturmedeiros9398-png/projeto_unificado1
 
-# 2. Instalar dependências
+# 2. Acessar o projeto
+cd projeto_unificado1
+
+# 3. Criar o Venv
+python -m venv venv
+
+# 4. Ativar o ambiente virtual
+venv\Scripts\activate    # Windows
+
+# 5. Instalar dependências
 pip install -r requirements.txt
 
-# 3. Configurar ambiente
-cp .env.example .env
-# Edite o .env se for usar PostgreSQL
-
-# 4. Migrations
+# 6. Migrations
 python manage.py makemigrations
 python manage.py migrate
 
-# 5. Criar perfis iniciais + superuser
-python manage.py shell -c "
-from apps.users.models import Perfil
-for d in ['Aluno', 'Professor', 'Administrador']:
-    Perfil.objects.get_or_create(descricao=d)
-print('Perfis criados.')
-"
+#5 Criar o superuser (email, nome, data de nascimento e senha)
 python manage.py createsuperuser
 
 # 6. Rodar
