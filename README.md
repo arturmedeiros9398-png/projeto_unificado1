@@ -104,3 +104,4 @@ python manage.py runserver
 3. Cada grupo preencher os conteúdos do seu módulo
 4. Integrar o frontend React com os endpoints acima
 5. Em produção: trocar para PostgreSQL e configurar `SECRET_KEY` forte
+Davi 
