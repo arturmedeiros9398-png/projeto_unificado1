@@ -30,29 +30,31 @@ projeto_unificado/
 ## Setup rápido
 
 ```bash
-# 1. Clonar o repositório:
+# 1. Criar uma pasta vazia, abrir o terminal e rodar os seguintes comandos:
+
+# 2. Clonar o repositório:
 git clone https://github.com/arturmedeiros9398-png/projeto_unificado1
 
-# 2. Acessar o projeto
+# 3. Acessar o projeto
 cd projeto_unificado1
 
-# 3. Criar o Venv
+# 4. Criar o Venv
 python -m venv venv
 
-# 4. Ativar o ambiente virtual
+# 5. Ativar o ambiente virtual
 venv\Scripts\activate    # Windows
 
-# 5. Instalar dependências
+# 6. Instalar dependências
 pip install -r requirements.txt
 
-# 6. Migrations
+# 7. Migrations
 python manage.py makemigrations
 python manage.py migrate
 
-#5 Criar o superuser (email, nome, data de nascimento e senha)
+# 8. Criar o superuser (email, nome, data de nascimento e senha)
 python manage.py createsuperuser
 
-# 6. Rodar
+# 9. Rodar
 python manage.py runserver
 ```
 
@@ -76,20 +78,6 @@ python manage.py runserver
 | ... | `/api/saude-mental/...` | Mesmo padrão |
 | ... | `/api/qualidade-vida/...` | Mesmo padrão |
 | GET | `/api/docs/` | Swagger UI |
-
----
-
-## Autenticação (Frontend)
-
-```javascript
-// Login
-const { data } = await api.post('/auth/login/', { email, password });
-localStorage.setItem('access_token', data.access);
-localStorage.setItem('refresh_token', data.refresh);
-
-// Header em todas as requisições
-Authorization: Bearer <access_token>
-```
 
 ---
 
