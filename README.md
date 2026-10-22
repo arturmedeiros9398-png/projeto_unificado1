@@ -33,32 +33,31 @@ projeto_unificado/
 ## Setup rápido
 
 ```bash
-# 1. Criar e ativar virtualenv
-python -m venv venv
-source venv/bin/activate   # Linux/Mac
-# venv\Scripts\activate    # Windows
+# 1. Criar uma pasta vazia, abrir o terminal e rodar os seguintes comandos:
 
-# 2. Instalar dependências
+# 2. Clonar o repositório:
+git clone https://github.com/arturmedeiros9398-png/projeto_unificado1
+
+# 3. Acessar o projeto
+cd projeto_unificado1
+
+# 4. Criar o Venv
+python -m venv venv
+
+# 5. Ativar o ambiente virtual
+venv\Scripts\activate    # Windows
+
+# 6. Instalar dependências
 pip install -r requirements.txt
 
-# 3. Configurar ambiente
-cp .env.example .env
-# Edite o .env se for usar PostgreSQL
-
-# 4. Migrations
+# 7. Migrations
 python manage.py makemigrations
 python manage.py migrate
 
-# 5. Criar perfis iniciais + superuser
-python manage.py shell -c "
-from apps.users.models import Perfil
-for d in ['Aluno', 'Professor', 'Administrador']:
-    Perfil.objects.get_or_create(descricao=d)
-print('Perfis criados.')
-"
+# 8. Criar o superuser (email, nome, data de nascimento e senha)
 python manage.py createsuperuser
 
-# 6. Rodar
+# 9. Rodar
 python manage.py runserver
 ```
 
@@ -82,20 +81,6 @@ python manage.py runserver
 | ... | `/api/saude-mental/...` | Mesmo padrão |
 | ... | `/api/qualidade-vida/...` | Mesmo padrão |
 | GET | `/api/docs/` | Swagger UI |
-
----
-
-## Autenticação (Frontend)
-
-```javascript
-// Login
-const { data } = await api.post('/auth/login/', { email, password });
-localStorage.setItem('access_token', data.access);
-localStorage.setItem('refresh_token', data.refresh);
-
-// Header em todas as requisições
-Authorization: Bearer <access_token>
-```
 
 ---
 
