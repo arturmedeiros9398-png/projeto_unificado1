@@ -7,6 +7,9 @@ Backend Django unificado dos módulos:
 
 Com **banco único** + **autenticação centralizada (JWT)**.
 
+
+TESTE DE PULL E PUSH
+
 ---
 
 ## Estrutura
